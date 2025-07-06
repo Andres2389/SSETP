@@ -59,13 +59,11 @@ class EtapaProductivaResource extends Resource
             Forms\Components\Fieldset::make('📅 Fechas')->schema([
                 Forms\Components\DatePicker::make('fecha_inicio_ep')
                     ->label('Fecha Inicio EP')
-                    ->displayFormat('d/m/Y')
-                    ->required(),
+                    ->displayFormat('d/m/Y'),
 
                 Forms\Components\DatePicker::make('fecha_17_meses')
                     ->label('Fecha 17 Meses')
-                    ->displayFormat('d/m/Y')
-                    ->required(),
+                    ->displayFormat('d/m/Y'),
             ])->columns(2),
 
             // 📘 Ficha y Programa
@@ -74,7 +72,6 @@ class EtapaProductivaResource extends Resource
                     ->label('Ficha')
                     ->relationship('fichas', 'numero')
                     ->searchable()
-                    ->required()
                     ->placeholder('Seleccione una ficha')
                     ->preload()
                     ->afterStateUpdated(function (callable $set, $state) {
@@ -84,8 +81,7 @@ class EtapaProductivaResource extends Resource
 
                 Forms\Components\TextInput::make('programa_formacion')
                     ->label('Programa de Formación')
-                    ->disabled()
-                    ->required(),
+                    ->disabled(),
 
                 Forms\Components\TextInput::make('estado_ficha')
                     ->label('Estado de la ficha'),
@@ -103,20 +99,16 @@ class EtapaProductivaResource extends Resource
                         'PEP' => 'Permiso Especial de Permanencia',
                         'PPT' => 'Permiso Temporal de Protección',
                     ])
-                    ->required()
                     ->placeholder('Seleccione una opción'),
 
                 Forms\Components\TextInput::make('numero_documento')
-                    ->label('Número de Documento')
-                    ->required(),
+                    ->label('Número de Documento'),
 
                 Forms\Components\TextInput::make('nombre')
-                    ->label('Nombre')
-                    ->required(),
+                    ->label('Nombre'),
 
                 Forms\Components\TextInput::make('apellidos')
-                    ->label('Apellidos')
-                    ->required(),
+                    ->label('Apellidos'),
 
                 Forms\Components\TextInput::make('celular')
                     ->label('Celular')
@@ -142,7 +134,6 @@ class EtapaProductivaResource extends Resource
                 Forms\Components\Select::make('instructores_id')
                     ->label('Instructor de Seguimiento')
                     ->searchable()
-                    ->required()
                     ->options(
                         Instructores::all()->mapWithKeys(function ($instructor) {
                             return [
@@ -198,13 +189,11 @@ class EtapaProductivaResource extends Resource
                         '2' => '2 - Parcial',
                         '3' => '3 - Final',
                     ])
-                    ->required()
                     ->columnSpan('full'),
 
                 Forms\Components\Select::make('numero_bitacoras')
                     ->label('Número de Bitácora')
                     ->options(array_combine(range(1, 12), array_map(fn($i) => "$i/12", range(1, 12))))
-                    ->required()
                     ->columnSpan('full'),
             ]),
 
@@ -215,8 +204,7 @@ class EtapaProductivaResource extends Resource
                     ->options([
                         'Sí' => 'Sí',
                         'No' => 'No',
-                    ])
-                    ->required(),
+                    ]),
             ]),
         ]);
     }
