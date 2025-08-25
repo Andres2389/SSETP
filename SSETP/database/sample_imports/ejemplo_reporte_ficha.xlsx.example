@@ -1,0 +1,18 @@
+# EJEMPLO DE ARCHIVO EXCEL PARA IMPORTAR FICHAS
+
+Crear un archivo Excel (.xlsx) con las siguientes columnas:
+
+| numero_documento | tipo_documento | nombre        | apellidos       | celular     | correo                  | estado_sofia | fecha_inicio_ep |
+|------------------|----------------|---------------|-----------------|-------------|-------------------------|--------------|-----------------|
+| 1234567890       | CC             | Juan Carlos   | Pérez Gómez     | 3101234567  | juan.perez@gmail.com    | formacion    | 2024-01-15      |
+| 0987654321       | CC             | Ana María     | López Rodríguez | 3207654321  | ana.lopez@gmail.com     | formacion    | 2024-01-15      |
+| 1122334455       | TI             | Luis Fernando | Martínez Silva  | 3151122334  | luis.martinez@gmail.com | formacion    | 2024-01-20      |
+
+## Notas Importantes:
+
+1. La primera fila debe contener exactamente estos nombres de columnas
+2. Las columnas obligatorias son: numero_documento, nombre, apellidos
+3. tipo_documento puede ser: CC, TI, CE (por defecto CC)
+4. estado_sofia puede ser: matriculado, formacion, por_certificar, certificado, cancelado
+5. fecha_inicio_ep debe estar en formato YYYY-MM-DD
+6. El sistema creará automáticamente la ficha y los registros de Etapa Productiva
