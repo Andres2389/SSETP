@@ -20,6 +20,9 @@ class ListInstructors extends ListRecords
                 ->slideOver()
                 ->color("primary")
                 ->label('Importar Instructores')
+                  ->visible(fn () =>
+                    auth()->user()->can('importar instructores') || auth()->user()->hasRole('admin')
+                )
                 ->after(function () {
                     Notification::make()
                         ->title('Importación exitosa')

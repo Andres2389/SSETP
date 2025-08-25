@@ -22,6 +22,9 @@ class ListFichas extends ListRecords
                 ->slideOver()
                 ->color('primary')
                 ->label('Importar Fichas')
+                 ->visible(fn () =>
+                    auth()->user()->can('importar fichas') || auth()->user()->hasRole('admin')
+                )
                  ->after(function () {
                     Notification::make()
                         ->title('Importación exitosa')

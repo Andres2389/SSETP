@@ -31,7 +31,7 @@ class BitacorasChart extends ChartWidget
             $count = BitacoraUpload::whereYear('created_at', $date->year)
                 ->whereMonth('created_at', $date->month)
                 ->count();
-            
+
             $data[] = $count;
         }
 
